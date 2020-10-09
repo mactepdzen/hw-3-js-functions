@@ -155,3 +155,16 @@ function sum() {
 
     return args.shift() + sum.apply(null, args);
 }
+
+// ---------------------
+
+//9. countDown function
+function countDown(number) {
+    if (number < 0) return 0;
+
+    setTimeout(() => {
+        console.log(number);
+        --number;
+        countDown(number)
+    }, 1000);
+}
