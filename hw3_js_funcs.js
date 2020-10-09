@@ -78,3 +78,26 @@ function reverseEachWord(string) {
     }
     return result.join(' ');
 }
+
+// ---------------------
+
+//5. stringExpansion function
+function stringExpansion(string) {
+    var result = [];
+
+    for (var i = 0; i < string.length; i++) {
+        if (Number.isNaN(Number.parseInt(string[i])) === false &&
+            Number.isNaN(Number.parseInt(string[i + 1]))) {
+            var currentNum = Number.parseInt(string[i]);
+
+            for (var j = 0; j < currentNum; j++) {
+                result.push(string[i + 1]);
+            }
+
+            i++; //if we find a 'number-letter' pair, we do +1 step to avoid duplicating the letter
+        } else if (Number.isNaN(Number.parseInt(string[i]))) {
+            result.push(string[i]);
+        }
+    }
+    return result.join('');
+}
