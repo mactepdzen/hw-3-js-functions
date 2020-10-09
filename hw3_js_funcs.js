@@ -54,3 +54,27 @@ function toCamelCaseModified(string) {
 
     return result.join('');
 }
+
+// ---------------------
+
+//4. reverseEachWord function
+function reverseEachWord(string) {
+    var words = string.split(' '); // splitting a string into words
+
+    var letters = []; // array for letters selected from word
+    for (var word of words) {
+        letters.push(word.split(''));
+    }
+
+    //this loop is the only difference between reverseEachWord and splitAndMerge
+    //it's cool when it's possible to reuse code that was written before :)
+    for(var letter of letters) {
+        letter.reverse();
+    }
+
+    var result = [];
+    for (var letter of letters) {
+        result.push(letter.join(''));
+    }
+    return result.join(' ');
+}
