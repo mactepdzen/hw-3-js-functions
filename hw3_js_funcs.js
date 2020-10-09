@@ -131,3 +131,27 @@ function largest () {
 
     return max;
 }
+
+// ---------------------
+
+//7.
+
+// ---------------------
+
+//8. sum function
+function sum() {
+    //Actually, before the array transformation construction, which is described below,
+    //I used this option 'var args = [].slice.call(arguments);'
+    //Just I checked on habr that construction below works faster and seems like good practice
+    var i;
+    var args = new Array(arguments.length);
+    for (i = 0; i < args.length; i++) {
+        args[i] = arguments[i];
+    }
+
+    if (args.length === 0) {
+        return 0;
+    }
+
+    return args.shift() + sum.apply(null, args);
+}
