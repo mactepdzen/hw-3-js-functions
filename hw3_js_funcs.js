@@ -101,3 +101,33 @@ function stringExpansion(string) {
     }
     return result.join('');
 }
+
+// ---------------------
+
+//6. largest and smallest functions
+
+function smallest () {
+    var args = [].slice.call(arguments);
+    var min = args[0];
+
+    for (var item of args) {
+        if (item < min) {
+            min = item;
+        }
+    }
+
+    return min;
+}
+
+function largest () {
+    var args = [].slice.call(arguments);
+    var max = args[0];
+
+    for (var item of args) {
+        if (item > max) {
+            max = item;
+        }
+    }
+
+    return max;
+}
