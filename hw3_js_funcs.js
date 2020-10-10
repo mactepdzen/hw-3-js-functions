@@ -168,3 +168,15 @@ function countDown(number) {
         countDown(number)
     }, 1000);
 }
+
+// ---------------------
+
+//10. myBind function (bind polyfill)
+Function.prototype.myBind = function (context) {
+    var current = this;
+    var rest = [].slice.call(arguments, 1);
+    return function () {
+        var params = [].slice.call(arguments);
+        return current.apply(context, rest.concat(params))
+    }
+}
