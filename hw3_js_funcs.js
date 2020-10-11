@@ -18,6 +18,22 @@ function splitAndMerge(str, sp) {
 // ---------------------
 
 //2. convert function
+function convert(hash) {
+    var result = [];
+    Object.keys(hash).forEach(key => {
+        result.push([key, hash[key]]);
+    });
+    return result;
+}
+
+// added implementation using for...in statement :)
+function convertModified(hash) {
+    var result = [];
+    for (var key in hash) {
+        result.push([key, hash[key]]);
+    }
+    return result;
+}
 
 // ---------------------
 
