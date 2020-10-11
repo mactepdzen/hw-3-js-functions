@@ -134,7 +134,15 @@ function largest () {
 
 // ---------------------
 
-//7.
+//7. transform function
+function transform(arr) {
+    var transformedArr = arr.map(function (item) {
+        return function () {
+            return item;
+        }
+    })
+    return transformedArr;
+}
 
 // ---------------------
 
