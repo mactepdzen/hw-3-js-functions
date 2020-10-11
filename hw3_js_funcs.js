@@ -3,13 +3,13 @@ function splitAndMerge(str, sp) {
     var words = str.split(' '); // splitting a string into words
 
     var letters = []; // array for letters selected from word
-    for (var word of words) {
-        letters.push(word.split(''));
+    for (var i = 0; i < words.length; i++) {
+        letters[i] = words[i].split('');
     }
 
     var result = [];
-    for (var letter of letters) {
-        result.push(letter.join(sp));
+    for (var i = 0; i < letters.length; i++) {
+        result[i] = letters[i].join(sp);
     }
 
     return result.join(' ');
@@ -43,7 +43,7 @@ function toCamelCase(string) {
     var result = []; // array where we put our chars according to the task rules before merging it
 
     for(var i = 0; i < arr.length; i++) {
-        if(arr[i].includes('-') || arr[i].includes('_')){
+        if(arr[i] === '-' || arr[i] === '_'){
             result.push(arr[i + 1].toUpperCase());
             i++; // if we met '-' or '_' we have to skip next char to avoid repeating it
         } else {
@@ -60,7 +60,7 @@ function toCamelCaseModified(string) {
     var result = [];
 
     for(var i = 0; i < arr.length; i++) {
-        if(arr[i].includes('-') || arr[i].includes('_')){
+        if(arr[i] === '-' || arr[i] === '_'){
             result.push(` ${arr[i + 1].toUpperCase()}`);
             i++;
         } else {
@@ -78,20 +78,21 @@ function reverseEachWord(string) {
     var words = string.split(' '); // splitting a string into words
 
     var letters = []; // array for letters selected from word
-    for (var word of words) {
-        letters.push(word.split(''));
+    for (var i = 0; i < words.length; i++) {
+        letters[i] = words[i].split('');
     }
 
     //this loop is the only difference between reverseEachWord and splitAndMerge
     //it's cool when it's possible to reuse code that was written before :)
-    for(var letter of letters) {
-        letter.reverse();
+    for (var i = 0; i < letters.length; i++) {
+        letters[i].reverse();
     }
 
     var result = [];
-    for (var letter of letters) {
-        result.push(letter.join(''));
+    for (var i = 0; i < letters.length; i++) {
+        result[i] = letters[i].join('');
     }
+
     return result.join(' ');
 }
 
@@ -115,6 +116,7 @@ function stringExpansion(string) {
             result.push(string[i]);
         }
     }
+
     return result.join('');
 }
 
@@ -126,9 +128,9 @@ function smallest () {
     var args = [].slice.call(arguments);
     var min = args[0];
 
-    for (var item of args) {
-        if (item < min) {
-            min = item;
+    for (var i = 0; i < args.length; i++) {
+        if(args[i] < min) {
+            min = args[i];
         }
     }
 
@@ -139,9 +141,9 @@ function largest () {
     var args = [].slice.call(arguments);
     var max = args[0];
 
-    for (var item of args) {
-        if (item > max) {
-            max = item;
+    for (var i = 0; i < args.length; i++) {
+        if(args[i] > max) {
+            max = args[i];
         }
     }
 
