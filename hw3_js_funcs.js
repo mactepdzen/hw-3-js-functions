@@ -2,14 +2,9 @@
 function splitAndMerge(str, sp) {
     var words = str.split(' ');
 
-    var letters = [];
-    for (var i = 0; i < words.length; i++) {
-        letters[i] = words[i].split('');
-    }
-
     var result = [];
-    for (var i = 0; i < letters.length; i++) {
-        result[i] = letters[i].join(sp);
+    for (var i = 0; i < words.length; i++) {
+        result[i] = words[i].split('').join(sp);
     }
 
     return result.join(' ');
