@@ -56,7 +56,7 @@ function toCamelCaseModified(string) {
 
     for(var i = 0; i < arr.length; i++) {
         if(arr[i] === '-' || arr[i] === '_'){
-            result.push(` ${arr[i + 1].toUpperCase()}`);
+            result.push(' ' + arr[i + 1].toUpperCase());
             i++;
         } else {
             result.push(arr[i]);
