@@ -1,8 +1,8 @@
 //1. splitAndMerge function
 function splitAndMerge(str, sp) {
-    var words = str.split(' '); // splitting a string into words
+    var words = str.split(' ');
 
-    var letters = []; // array for letters selected from word
+    var letters = [];
     for (var i = 0; i < words.length; i++) {
         letters[i] = words[i].split('');
     }
@@ -39,13 +39,13 @@ function convertModified(hash) {
 
 //3. toCamelCase function
 function toCamelCase(string) {
-    var arr = string.split(''); // array for splitted into chars string
-    var result = []; // array where we put our chars according to the task rules before merging it
+    var arr = string.split('');
+    var result = [];
 
     for(var i = 0; i < arr.length; i++) {
         if(arr[i] === '-' || arr[i] === '_'){
             result.push(arr[i + 1].toUpperCase());
-            i++; // if we met '-' or '_' we have to skip next char to avoid repeating it
+            i++;
         } else {
             result.push(arr[i]);
         }
@@ -75,15 +75,13 @@ function toCamelCaseModified(string) {
 
 //4. reverseEachWord function
 function reverseEachWord(string) {
-    var words = string.split(' '); // splitting a string into words
+    var words = string.split(' ');
 
-    var letters = []; // array for letters selected from word
+    var letters = [];
     for (var i = 0; i < words.length; i++) {
         letters[i] = words[i].split('');
     }
 
-    //this loop is the only difference between reverseEachWord and splitAndMerge
-    //it's cool when it's possible to reuse code that was written before :)
     for (var i = 0; i < letters.length; i++) {
         letters[i].reverse();
     }
@@ -111,7 +109,7 @@ function stringExpansion(string) {
                 result.push(string[i + 1]);
             }
 
-            i++; //if we find a 'number-letter' pair, we do +1 step to avoid duplicating the letter
+            i++;
         } else if (Number.isNaN(Number.parseInt(string[i]))) {
             result.push(string[i]);
         }
@@ -166,9 +164,6 @@ function transform(arr) {
 
 //8. sum function
 function sum() {
-    //Actually, before the array transformation construction, which is described below,
-    //I used this option 'var args = [].slice.call(arguments);'
-    //Just I checked on habr that construction below works faster and seems like good practice
     var i;
     var args = new Array(arguments.length);
     for (i = 0; i < args.length; i++) {
