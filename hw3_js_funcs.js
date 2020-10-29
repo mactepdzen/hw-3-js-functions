@@ -72,18 +72,9 @@ function toCamelCaseModified(string) {
 function reverseEachWord(string) {
     var words = string.split(' ');
 
-    var letters = [];
-    for (var i = 0; i < words.length; i++) {
-        letters[i] = words[i].split('');
-    }
-
-    for (var i = 0; i < letters.length; i++) {
-        letters[i].reverse();
-    }
-
     var result = [];
-    for (var i = 0; i < letters.length; i++) {
-        result[i] = letters[i].join('');
+    for (var i = 0; i < words.length; i++) {
+        result[i] = words[i].split('').reverse().join('');
     }
 
     return result.join(' ');
