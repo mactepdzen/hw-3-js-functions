@@ -87,16 +87,12 @@ function stringExpansion(string) {
     var result = [];
 
     for (var i = 0; i < string.length; i++) {
-        if (Number.isNaN(Number.parseInt(string[i])) === false &&
-            Number.isNaN(Number.parseInt(string[i + 1]))) {
-            var currentNum = Number.parseInt(string[i]);
-
-            for (var j = 0; j < currentNum; j++) {
+        if(!isNaN(string[i]) && isNaN(string[i + 1])) {
+            for (var j = 0; j < string[i]; j++) {
                 result.push(string[i + 1]);
             }
-
             i++;
-        } else if (Number.isNaN(Number.parseInt(string[i]))) {
+        } else if (isNaN(string[i])){
             result.push(string[i]);
         }
     }
