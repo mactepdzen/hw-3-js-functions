@@ -134,11 +134,16 @@ function largest () {
 
 //7. transform function
 function transform(arr) {
-    var transformedArr = arr.map(function (item) {
-        return function () {
-            return item;
-        }
-    })
+    var transformedArr = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        transformedArr[i] = (function (item) {
+            return function () {
+                return item;
+            };
+        })(arr[i]);
+    }
+
     return transformedArr;
 }
 
